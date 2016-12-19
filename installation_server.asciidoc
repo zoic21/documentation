@@ -55,3 +55,12 @@ google-authenticator
 
 [NOTE]
 Répondre yes à toutes les questions
+
+# Utilitaire
+
+----
+git clone https://github.com/zoic21/scripts.git
+echo 'alias c="~/scripts/shell/connection/connection.sh"' >> ~/.profile
+echo 'alias m="~/scripts/shell/connection/multissh.sh"'  >> ~/.profile
+chmod +x ~/scripts/shell/connection/*.sh
+----
