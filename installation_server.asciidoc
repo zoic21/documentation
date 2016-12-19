@@ -25,6 +25,9 @@ Ajouter au fichier /etc/ssh/sshd_config les utilisateurs autorisé en SSH :
 
 ----
 AllowUsers #user# #user2#
+IgnoreRhosts yes
+HostbasedAuthentication no
+PermitEmptyPasswords no
 ----
 
 ----
