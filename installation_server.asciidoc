@@ -19,10 +19,19 @@ rm -rf /home/#user#/.bashrc
 wget https://raw.githubusercontent.com/zoic21/scripts/master/shell/bashrc -O /home/#user#/.bashrc
 ----
 
+## Securisation SSH
+
+----
+sed -i 's/ServerKeyBits 1024/ServerKeyBits 2048/' /etc/ssh/sshd_config
+sed -i 's/PermitRootLogin without-password/PermitRootLogin no/' /etc/ssh/sshd_config
+systemctl restart sshd
+----
+
 ## Configuration fail2ban
 
 ----
 sed -i 's/bantime  = 600/bantime  = -1/' /etc/fail2ban/jail.conf
+systemctl restart fail2ban
 ----
 
 # Cas d'une station de rebond linux
