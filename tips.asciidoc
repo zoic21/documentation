@@ -1,0 +1,28 @@
+# Montage autofs en sshfs
+
+Editer le fichier /etc/auto.master et ajouter : 
+
+----
+/monrepertoire   /etc/auto.sshfs  uid=1000,gid=1000, --timeout=30, --ghost
+----
+
+[IMPORTANT]
+Remplacer les uid et gid par celui de votre utilisateur (la commande id vous les donnera)
+
+[NOTE]
+/monrepertoire doit etre le repertoire N-1 à monter
+
+Créer ensuite un fichier /etc/auto.sshfs et mettre dedans :
+
+----
+repertoire -fstype=fuse,port=22,rw,allow_other :sshfs\#USER@IP\:/repertoire/a/monter
+----
+
+[IMPORTANT]
+Il faut bien remplacer repertoire par le nom du repertoire qui contiendra votre montage, USER, IP et /repertoire/a/monter
+
+Ensuite on redemarre autofs et c'est bon
+
+----
+systemctl restart autofs
+-----
