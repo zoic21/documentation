@@ -1,7 +1,9 @@
 # Packets de base
 
 ----
-apt-get update && apt-get install -y wget fail2ban ntp unzip curl openssh-server supervisor tar sudo htop iftop net-tools python ca-certificates vim git locate dos2unix dnsutils
+apt-get update 
+apt-get dist-upgrade
+apt-get install -y wget fail2ban ntp unzip curl openssh-server supervisor tar sudo htop iftop net-tools python ca-certificates vim git locate dos2unix dnsutils sshfs
 ----
 
 ## Packet open-vm-tools (dans le cas d'une vm)
