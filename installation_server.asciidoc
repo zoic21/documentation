@@ -1,0 +1,40 @@
+# Packets de base
+
+----
+apt-get update && apt-get install -y wget fail2ban ntp unzip curl openssh-server supervisor tar sudo htop iftop net-tools python ca-certificates vim git locate dos2unix dnsutils
+----
+
+## Packet open-vm-tools (dans le cas d'une vm)
+
+----
+apt-get install -y open-vm-tools
+----
+
+## Changement du bashrc
+
+----
+rm -rf /root/.bashrc
+wget https://raw.githubusercontent.com/zoic21/scripts/master/shell/bashrc -O /root/.bashrc
+rm -rf /home/#user#/.bashrc
+wget https://raw.githubusercontent.com/zoic21/scripts/master/shell/bashrc -O /home/#user#/.bashrc
+----
+
+## Configuration fail2ban
+
+----
+sed -i 's/bantime  = 600/bantime  = -1/' /etc/fail2ban/jail.conf
+----
+
+# Cas d'une station de rebond linux
+
+## Double authentification google authenticator
+
+----
+apt-get install libpam-google-authenticator
+sed -i '2i auth required pam_google_authenticator.so' /etc/pam.d/sshd
+sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/' /etc/ssh/sshd_config
+google-authenticator
+----
+
+[NOTE]
+Répondre yes à toutes les questionq
